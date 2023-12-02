@@ -1,3 +1,5 @@
+using BenchmarkDotNet.Running;
+
 if (args.Length == 0)
 {
     await Solver.SolveLast(opt => opt.ClearConsole = false);
@@ -15,4 +17,8 @@ else
     var indexes = args.Select(arg => uint.TryParse(arg, out var index) ? index : uint.MaxValue);
 
     await Solver.Solve(indexes.Where(i => i < uint.MaxValue));
+
+    if( args.Contains("bench")) {
+        BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+    }
 }
