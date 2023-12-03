@@ -13,27 +13,8 @@ public class Day_03 : BaseDay
     private string stripped;
     private int height;
     private int width;
-    private List<Cell> Map = new List<Cell>();
 
-    public Day_03()
-    {
-        input = File.ReadAllText(InputFilePath);
-        var testInput =
-        """
-        467..114..
-        ...*......
-        ..35..633.
-        ......#...
-        617*......
-        .....+.58.
-        ..592.....
-        ......755.
-        ...$.*....
-        .664.598..
-        """;
-
-        //input = testInput;
-    }
+    public Day_03() => input = File.ReadAllText(InputFilePath);
     [Benchmark]
     public override ValueTask<string> Solve_1() => new(Part1().ToString());
 
@@ -120,10 +101,6 @@ public class Day_03 : BaseDay
         return (x: x, y: y);
     }
 }
-
-
-
-public record Cell(int x, int y, CellType type, char value);
 
 public enum CellType
 {
