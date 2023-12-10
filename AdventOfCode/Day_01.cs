@@ -20,12 +20,12 @@ public class Day_01 : BaseDay
 
     private int Part1() => input
         .Select(x => x.ToCharArray().Where(c => c <= 0x39))
-        .Select(x => 10 * x.First() + x.Last())
+        .Select(x => 10 * (x.First()-0x30) + (x.Last()-0x30))
         .Sum();
 
     private int Part2() => input
         .Select(x => FixLine(x).ToCharArray().Where(c => c <= 0x39))
-        .Select(x => 10 * x.First() + x.Last())
+        .Select(x => 10 * (x.First()-0x30) + (x.Last()-0x30))
         .Sum();
 
     private string FixLine(string line)
